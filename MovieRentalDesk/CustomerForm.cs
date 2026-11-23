@@ -68,9 +68,20 @@ public partial class CustomerForm : Form
             // UQ_Customer_Email
             MessageBox.Show($"A customer with the email {email} already exists.");
         }
+
+        
         catch (SqlException ex) when (ex.Number == 547)
         {
             MessageBox.Show("The database rejected one of the values.");
+        }
+        catch (SqlException ex)
+        {
+            MessageBox.Show(
+                "Could not add customer: " + ex.Message,
+                "Database Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error
+            );
         }
     }
 }
