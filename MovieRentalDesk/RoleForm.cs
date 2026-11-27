@@ -15,7 +15,7 @@ public partial class RoleForm : Form
         if (cboRole.Text == "Employee")
             new MainMenuForm().ShowDialog();
         else if (cboRole.Text == "Customer")
-            new PlaceholderForm("Customer View").ShowDialog();   // customers don't get the employee menu
+            new CustomerDashboardForm().ShowDialog();   // customer view, not the employee menu
         else
             MessageBox.Show("Choose a role first.");
     }
